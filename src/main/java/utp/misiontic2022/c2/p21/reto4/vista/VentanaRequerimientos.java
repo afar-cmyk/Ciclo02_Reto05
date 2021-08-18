@@ -44,7 +44,7 @@ public class VentanaRequerimientos extends JFrame {
         tbd.addTab("Consulta de Requerimientos", panel);;
 
         var panelEntrada = new JPanel();
-        panelEntrada.add(new JLabel("Requerimientos: "));
+        //panelEntrada.add(new JLabel("Requerimientos: "));
 
         var btnConsulta = new JButton("Requerimiento 1");
         btnConsulta.addActionListener(e -> cargarTablaConsulta());
