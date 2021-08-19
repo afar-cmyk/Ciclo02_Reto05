@@ -16,6 +16,7 @@ import javax.swing.table.AbstractTableModel;
 
 import utp.misiontic2022.c2.p21.reto4.controlador.ControladorRequerimientos;
 import utp.misiontic2022.c2.p21.reto4.modelo.vo.Requerimiento_1;
+import utp.misiontic2022.c2.p21.reto4.modelo.vo.Requerimiento_2;
 
 public class VentanaRequerimientos extends JFrame {
 
@@ -39,18 +40,15 @@ public class VentanaRequerimientos extends JFrame {
         var panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
-        //tbd.addTab("Consulta de Requerimientos", panel);
-
         tbd.addTab("Consulta de Requerimientos", panel);;
 
         var panelEntrada = new JPanel();
-        //panelEntrada.add(new JLabel("Requerimientos: "));
 
         var btnConsulta = new JButton("Requerimiento 1");
         btnConsulta.addActionListener(e -> cargarTablaConsulta());
 
         var btnConsulta2 = new JButton("Requerimiento 2");
-        //btnConsulta2.addActionListener(e -> cargarTablaConsulta2());
+        btnConsulta2.addActionListener(e -> cargarTablaConsulta2());
 
         var btnConsulta3 = new JButton("Requerimiento 3");
         //btnConsulta2.addActionListener(e -> );
@@ -133,24 +131,66 @@ public class VentanaRequerimientos extends JFrame {
 
     }
     
-    // private void cargarTablaConsulta2() {
-    //     try {
-    //         var lista = controlador.consultarRequerimiento2();
+    private void cargarTablaConsulta2() {
+        try {
+            var lista2 = controlador.consultarRequerimiento2();
 
-    //         var tableModel2 = new Requerimiento2TableModel();
+            var tableModel2 = new Requerimiento2TableModel();
 
-    //         tableModel2.setData(lista);
+            tableModel2.setData(lista2);
 
-    //         tabla.setModel(tableModel);
+            tabla.setModel(tableModel2);
 
 
             
-    //     } catch (SQLException e) {
-    //         JOptionPane.showMessageDialog(this, e.getMessage(), getTitle(), JOptionPane.ERROR_MESSAGE);
-    //     }
-    // }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), getTitle(), JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
-    // private class Requerimiento2TableModel extends AbstractTableModel{
+    private class Requerimiento2TableModel extends AbstractTableModel{
 
-    // }
+        private ArrayList<Requerimiento_2> datos;
+
+        public void setData(ArrayList<Requerimiento_2> datos) {
+            this.datos = datos;
+        }
+        
+        @Override
+        public String getColumnName(int column) {
+            switch (column) {
+                case 0:
+                return "Nombre de la Constructora";
+                case 1:
+                return "Nombre de la Ciduad";
+            }
+            return super.getColumnName(column);
+        }
+
+        @Override
+        public int getRowCount() {
+            return datos.size();
+        }
+
+        @Override
+        public int getColumnCount() {
+            return 2;
+        }
+
+        @Override
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            var registro2 = datos.get(rowIndex);
+
+            switch (columnIndex) {
+                case 0:
+                return registro2.getConstructora();
+                case 1:
+                return registro2.getCiudad();
+            }
+            return null;
+        }
+
+
+
+    }
 }
