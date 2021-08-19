@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-//import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -41,10 +40,11 @@ public class VentanaRequerimientos extends JFrame {
         var panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
-        tbd.addTab("Consulta de Requerimientos", panel);;
+        tbd.addTab("Consulta de Requerimientos", panel);
 
         var panelEntrada = new JPanel();
 
+        // Accion de los botones
         var btnConsulta = new JButton("Requerimiento 1");
         btnConsulta.addActionListener(e -> cargarTablaConsulta());
 
@@ -54,7 +54,7 @@ public class VentanaRequerimientos extends JFrame {
         var btnConsulta3 = new JButton("Requerimiento 3");
         btnConsulta3.addActionListener(e -> cargarTablaConsulta3());
 
-
+        // Botones
         panelEntrada.add(btnConsulta);
         panel.add(panelEntrada, BorderLayout.PAGE_START);
 
@@ -67,8 +67,6 @@ public class VentanaRequerimientos extends JFrame {
         //Adicionar tabla
         tabla = new JTable();
         panel.add(new JScrollPane(tabla), BorderLayout.CENTER);
-
-
     }
 
     private void cargarTablaConsulta() {
@@ -93,6 +91,17 @@ public class VentanaRequerimientos extends JFrame {
 
         public void setData(ArrayList<Requerimiento_1> data) {
             this.data = data;
+        }
+
+        @Override
+        public Class<?> getColumnClass(int columnIndex) {
+            switch(columnIndex){
+                case 0:
+                    return String.class;
+                case 1:
+                    return Integer.class;
+                }
+            return super.getColumnClass(columnIndex);
         }
 
         @Override
@@ -126,10 +135,8 @@ public class VentanaRequerimientos extends JFrame {
                 case 1:
                     return registro.getPrecioUnidad();
             }            
-
             return null;
         }
-
     }
     
     private void cargarTablaConsulta2() {
@@ -153,6 +160,17 @@ public class VentanaRequerimientos extends JFrame {
 
         public void setData(ArrayList<Requerimiento_2> datos) {
             this.datos = datos;
+        }
+
+        @Override
+        public Class<?> getColumnClass(int columnIndex) {
+            switch(columnIndex){
+                case 0:
+                    return String.class;
+                case 1:
+                    return String.class;
+                }
+            return super.getColumnClass(columnIndex);
         }
         
         @Override
@@ -211,6 +229,23 @@ public class VentanaRequerimientos extends JFrame {
 
         public void setData(ArrayList<Requerimiento_3> datos) {
             this.datos = datos;
+        }
+
+        @Override
+        public Class<?> getColumnClass(int columnIndex) {
+            switch(columnIndex){
+                case 0:
+                    return String.class;
+                case 1:
+                    return String.class;
+                case 2:
+                    return String.class;
+                case 3:
+                    return Integer.class;
+                case 4:
+                    return Integer.class;
+            } 
+            return super.getColumnClass(columnIndex);
         }
 
         @Override
