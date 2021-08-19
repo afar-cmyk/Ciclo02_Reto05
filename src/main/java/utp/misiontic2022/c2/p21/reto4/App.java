@@ -18,8 +18,8 @@ public class App
         // System.out.println("\nRequerimiento 2");
         // VistaRequerimientos.requerimiento2();
 
-        System.out.println("\nRequerimiento 3");
-        VistaRequerimientos.requerimiento3();
+        // System.out.println("\nRequerimiento 3");
+        // VistaRequerimientos.requerimiento3();
 
         var vista = new VentanaRequerimientos();
         vista.setVisible(true);
