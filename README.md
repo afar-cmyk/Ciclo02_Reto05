@@ -5,4 +5,5 @@ Para solucionar el Reto #05 con el lenguaje JAVA, fue necesario utilizar JDBCUti
 ![Interfaz en funcionamiento](https://i.imgur.com/I6WyKv0.gif)
 </br>
 </br>
-Video del Reto #05: https://youtu.be/ngX-j-NbdrA
+Video del Reto #05:</br>
+https://youtu.be/ngX-j-NbdrA
